@@ -6,9 +6,7 @@ import streamlit as st
 import requests
 from dotenv import load_dotenv
 
-load_dotenv()
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 @tool
 def calculator(expression: str) -> float:
     """
@@ -276,6 +274,7 @@ def get_distance(location1: str, location2: str) -> str:
 
 tools = [calculator, get_weather, get_latest_news, get_movie_details, get_recipe, get_distance]
 
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key=GOOGLE_API_KEY)
 
 agent = initialize_agent(tools, llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION)
