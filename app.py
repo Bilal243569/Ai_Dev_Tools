@@ -271,7 +271,6 @@ def get_distance(location1: str, location2: str) -> str:
 
 
 
-
 tools = [calculator, get_weather, get_latest_news, get_movie_details, get_recipe, get_distance]
 
 GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
